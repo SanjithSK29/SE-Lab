@@ -26,7 +26,8 @@ class Scheduler:
         for reservation in self.reservations.values():
             if (reservation["room"] == room_id
                     and reservation["slot"] == time_slot):
-                self.conflicts.append(f"{room_id} double-booked at {time_slot}")
+                self.conflicts.append(
+                    f"{room_id} double-booked at {time_slot}")
         for equipment in equipment_list:
             self.equipment_pool[equipment] -= 1
         self.reservations[self._next_reservation] = {
@@ -74,7 +75,8 @@ def main():
     scheduler.schedule_room("Board-1", "09-11")
     booking_b = scheduler.schedule_room("Huddle-3", "12-14")
     scheduler.schedule_room("Huddle-3", "15-16")
-    print("Slot length for b:", scheduler.slot_hours(scheduler.reservations[booking_b]["slot"]))
+    print("Slot length for b:", scheduler.slot_hours(
+        scheduler.reservations[booking_b]["slot"]))
     scheduler.cancel_reservation(77)
     slot = input("Slot for Board-2, like 10-12 (Enter for 10-12): ") or "10-12"
     scheduler.schedule_room("Board-2", slot, ["projector", "webcam"])
