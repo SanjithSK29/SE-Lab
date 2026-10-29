@@ -3,3 +3,6 @@ __pycache__/
 .venv/
 venv/
 leaderboard.json
+.coverage
+.pytest_cache/
+htmlcov/
